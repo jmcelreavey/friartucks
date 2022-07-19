@@ -11,7 +11,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   const Navigation = () => (
     <NavBar key={"navigation"} startContent={<Logo />}>
       <NavBarItem
-        selected={router.pathname === "/blog"}
+        selected={router.pathname === "/food"}
         title="Our Food"
         path="/food"
       />

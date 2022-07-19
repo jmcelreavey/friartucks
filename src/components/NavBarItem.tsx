@@ -7,12 +7,12 @@ type NavBarItemProps = {
 };
 export const NavBarItem = (props: NavBarItemProps) => {
   const { title, path, selected } = props;
-  const className = selected ? "btn-active" : "";
+  const className = selected ? "bg-green-700" : "";
   return (
     <li>
       <Link href={path} passHref>
         <a
-          className={`${className} btn btn-link hover:bg-green-700 motion-safe:hover:scale-125`}
+          className={`${className} uppercase font-semibold btn-link hover:bg-green-700 duration-500 motion-safe:hover:scale-105`}
         >
           {title}
         </a>
