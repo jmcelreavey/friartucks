@@ -39,7 +39,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   );
 
   return (
-    <div className="mx-auto min-h-screen flex-col" data-theme="business">
+    <div className="mx-auto min-h-screen flex-col" data-theme="forest">
       <Navigation />
       <Component {...pageProps} />
     </div>

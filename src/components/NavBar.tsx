@@ -7,7 +7,7 @@ type NavBarItemContainerProps = PropsWithChildren<{
 export const NavBar = (props: NavBarItemContainerProps) => {
   const { children, endContent, startContent } = props;
   return (
-    <div className="navbar bg-neutral shadow-xl">
+    <div className="navbar bg-base-300 shadow-xl">
       <div className="navbar-start">{startContent}</div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0 space-x-2">{children}</ul>
