@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  app:
+    container_name: ft_app
+    build: .
+    ports:
+      - "8005:3000"
+    volumes:
+      - .:/app
