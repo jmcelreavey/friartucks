@@ -1,7 +1,8 @@
-import type { NextPage } from "next";
-import { trpc } from "../utils/trpc";
+// coming soon page
+import { NextPage } from "next";
+import React from "react";
 
-const Home: NextPage = () => {
+const Food: NextPage = () => {
   return (
     <div className="hero fixed h-full align-middle justify-center bg-base-200">
       <div className="hero-content text-center">
@@ -14,4 +15,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Food;
