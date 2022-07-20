@@ -5,11 +5,13 @@ import { Logo } from "../components/Logo";
 import { NavBar } from "../components/NavBar";
 import { NavBarItem } from "../components/NavBarItem";
 import { useRouter } from "next/router";
+import { Footer } from "../components/Footer";
+import { FacebookLink } from "../components/FacebookLink";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   const router = useRouter();
   const Navigation = () => (
-    <NavBar key={"navigation"} startContent={<Logo />}>
+    <NavBar key={"navigation"} startContent={<Logo />} endContent={<FacebookLink />}>
       <NavBarItem
         selected={router.pathname === "/food"}
         title="Our Food"
@@ -39,9 +41,10 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   );
 
   return (
-    <div className="mx-auto min-h-screen flex-col" data-theme="forest">
+    <div className="mx-auto min-h-screen h-screen flex-col items-stretch flex" data-theme="lemonade">
       <Navigation />
       <Component {...pageProps} />
+      <Footer />
     </div>
   );
 };
