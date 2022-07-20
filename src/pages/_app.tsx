@@ -11,37 +11,29 @@ import { FacebookLink } from "../components/FacebookLink";
 const MyApp: AppType = ({ Component, pageProps }) => {
   const router = useRouter();
   const Navigation = () => (
-    <NavBar key={"navigation"} startContent={<Logo />} endContent={<FacebookLink />}>
+    <NavBar
+      key={"navigation"}
+      startContent={<Logo />}
+      endContent={<FacebookLink />}
+    >
       <NavBarItem
-        selected={router.pathname === "/food"}
-        title="Our Food"
-        path="/food"
+        selected={router.pathname === "/"}
+        title="Branches"
+        path="/"
       />
       <NavBarItem
-        selected={router.pathname === "/restaurants"}
-        title="Our Restaurants"
-        path="/restaurants"
-      />
-      <NavBarItem
-        selected={router.pathname === "/delivery"}
-        title="Delivery"
-        path="/delivery"
-      />
-      <NavBarItem
-        selected={router.pathname === "/careers"}
-        title="Careers"
-        path="/careers"
-      />
-      <NavBarItem
-        selected={router.pathname === "/vouchers"}
-        title="Vouchers"
-        path="/vouchers"
+        selected={router.pathname === "/menu"}
+        title="Menu"
+        path="/menu"
       />
     </NavBar>
   );
 
   return (
-    <div className="mx-auto min-h-screen h-screen flex-col items-stretch flex" data-theme="lemonade">
+    <div
+      className="mx-auto min-h-screen h-screen min-w-screen w-screen flex-col items-stretch flex"
+      data-theme="lemonade"
+    >
       <Navigation />
       <Component {...pageProps} />
       <Footer />

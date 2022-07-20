@@ -1,18 +1,30 @@
-import { GrFacebook } from 'react-icons/gr';
-import { SiContactlesspayment } from 'react-icons/si';
+import { SiContactlesspayment } from "react-icons/si";
+import { FcWiFiLogo } from "react-icons/fc";
+import Image from "next/image";
+import Link from "next/link";
 
 export const Footer = () => (
-  <footer className="border-green-700 border-t-2 footer footer-center p-5 bg-base-100 text-green-700">
-    <div>
-      <p className="font-bold">
-        All major payment providers are supported.
-      </p>
+  <footer className="border-green-700 border-t-2 footer p-4 bg-base-100 text-green-700 gap-y-4">
+    <div className="grid-flow-col divide-friar-blue self-center">
+      <p>Copyright Friar Tucks © {new Date().getFullYear()}</p>
+      <div className="divider divider-horizontal" />
+      <Link href="/about" passHref>
+        <a className="text-green-500 hover:text-green-600">About Us</a>
+      </Link>
+      <div className="divider divider-horizontal" />
+      <Link href="/contact" passHref>
+        <a className="text-green-500 hover:text-green-600">Contact Us</a>
+      </Link>
+    </div>
+    <div className="grid-flow-col gap-4 place-self-center">
       <SiContactlesspayment size={40} className="text-black" />
-      <p className="font-bold">
-        Friar Tucks Ltd. <br />
-        Providing tasty meals since 1983
-      </p>
-      <p>Copyright © {new Date().getFullYear()}</p>
-      </div>
+      <FcWiFiLogo size={40} className="text-black" />
+      <Image
+        src="/food-hygiene.png"
+        height={35}
+        width={75}
+        alt="5 star food rating"
+      />
+    </div>
   </footer>
 );

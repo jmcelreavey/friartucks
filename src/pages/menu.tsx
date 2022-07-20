@@ -2,7 +2,7 @@
 import { NextPage } from "next";
 import React from "react";
 
-const Food: NextPage = () => {
+const Menu: NextPage = () => {
   return (
     <div className="hero h-full align-middle justify-center text-white bg-friar-blue">
       <div className="hero-content text-center">
@@ -15,4 +15,4 @@ const Food: NextPage = () => {
   );
 };
 
-export default Food;
+export default Menu;
