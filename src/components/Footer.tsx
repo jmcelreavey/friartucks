@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const Footer = () => (
   <footer className="border-green-700 border-t-2 footer p-4 bg-base-100 text-green-700 gap-y-4">
-    <div className="grid-flow-col divide-friar-blue self-center">
+    <div className="grid-flow-col divide-friar-blue place-self-center">
       <p>Copyright Friar Tucks © {new Date().getFullYear()}</p>
       <div className="divider divider-horizontal" />
       <Link href="/about" passHref>

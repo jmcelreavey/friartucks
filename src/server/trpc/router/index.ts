@@ -1,10 +1,10 @@
 // src/server/router/index.ts
 import { t } from "../utils";
 
-import { exampleRouter } from "./example";
+import { branchRouter } from "./branch";
 
 export const appRouter = t.router({
-  example: exampleRouter,
+  branch: branchRouter,
 });
 
 // export type definition of API
