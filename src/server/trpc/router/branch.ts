@@ -1,6 +1,6 @@
 import { calculateCrowDistance, retrieveIPBreakdown, t } from "../utils";
 import { z } from "zod";
-import { BranchDetail, Branches } from "../data/branches";
+import { BranchDetails, Branches } from "../data/branches";
 
 export const branchRouter = t.router({
   nearest: t.procedure
@@ -16,7 +16,7 @@ export const branchRouter = t.router({
 
       const ipBreakdown = await retrieveIPBreakdown(input.ip);
 
-      let nearestBranch: BranchDetail | undefined;
+      let nearestBranch: BranchDetails | undefined;
       let nearestDistance = Number.MAX_VALUE;
 
       Branches.forEach((branch) => {

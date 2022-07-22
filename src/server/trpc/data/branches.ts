@@ -1,4 +1,4 @@
-export type BranchDetail = {
+export type BranchDetails = {
   name: string;
   lat: number;
   lon: number;
@@ -30,7 +30,7 @@ export const Branch = {
 
 type BranchType = typeof Branch[keyof typeof Branch];
 
-export const Branches = new Map<BranchType, BranchDetail>([
+export const Branches = new Map<BranchType, BranchDetails>([
   [
     "armagh",
     {

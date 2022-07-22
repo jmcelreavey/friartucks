@@ -7,6 +7,7 @@ import { NavBarItem } from "../components/NavBarItem";
 import { useRouter } from "next/router";
 import { Footer } from "../components/Footer";
 import { FacebookLink } from "../components/FacebookLink";
+import BranchProvider from "../contexts/branchContext";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -34,9 +35,11 @@ const MyApp: AppType = ({ Component, pageProps }) => {
       className="mx-auto min-h-screen h-screen min-w-screen w-screen flex-col items-stretch flex"
       data-theme="lemonade"
     >
-      <Navigation />
-      <Component {...pageProps} />
-      <Footer />
+      <BranchProvider>
+        <Navigation />
+        <Component {...pageProps} />
+        <Footer />
+      </BranchProvider>
     </div>
   );
 };
