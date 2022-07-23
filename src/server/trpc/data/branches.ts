@@ -11,6 +11,8 @@ export type BranchDetails = {
   about?: string;
   orderOnlineUrl?: string;
   openPositions?: Vacancy[];
+  facebookUrl: string;
+  googleMapsUrl?: string;
 };
 
 type Vacancy = {
@@ -42,9 +44,11 @@ export const Branches = new Map<BranchType, BranchDetails>([
       county: "Armagh",
       phone: "028 375 15255",
       postCode: "BT61 7AE",
-      openingHours: `Monday - Thurs: 10am - 12.30am \n
-      Fri & Sat: 10am - 02:30 \n
+      openingHours: `Monday - Thurs: 10am - 12.30am </br>
+      Fri & Sat: 10am - 02:30 </br>
       Sun:10am - 02:00`,
+      facebookUrl: "https://www.facebook.com/friartucks.armagh/",
+      googleMapsUrl: `https://www.google.com/maps/embed/v1/place?q=place_id:ChIJt16j-GaTYEgRqnUTNOoBR_o&key=AIzaSyBN6PrFQIW38viBGwecW9OGXQbL0luCsG0`,
     },
   ],
   [
@@ -58,9 +62,11 @@ export const Branches = new Map<BranchType, BranchDetails>([
       county: "Down",
       postCode: "BT32 3JL",
       phone: "028 406 28282",
-      openingHours: `Monday - Thurs: 10am - 12.30am \n
-      Fri & Sat: 10am - 02:30 \n
+      openingHours: `Monday - Thurs: 10am - 12.30am </br>
+      Fri & Sat: 10am - 02:30 </br>
       Sun:10am - 02:00`,
+      facebookUrl: "https://www.facebook.com/FriarTucksBB/",
+      googleMapsUrl: `https://www.google.com/maps/embed/v1/place?q=place_id:ChIJufZW5VLhYEgRsHh40zie5iU&key=AIzaSyBN6PrFQIW38viBGwecW9OGXQbL0luCsG0`,
     },
   ],
   [
@@ -74,9 +80,11 @@ export const Branches = new Map<BranchType, BranchDetails>([
       county: "Down",
       postCode: "BT35 6HT",
       phone: "028 302 69119",
-      openingHours: `Monday - Thurs: 10am - 12.30am \n
-      Fri & Sat: 10am - 02:30 \n
+      openingHours: `Monday - Thurs: 10am - 12.30am </br>
+      Fri & Sat: 10am - 02:30 </br>
       Sun:10am - 02:00`,
+      googleMapsUrl: `https://www.google.com/maps/embed/v1/place?q=place_id:ChIJdwL1UVbbYEgR8MiwUDolhWI&key=AIzaSyBN6PrFQIW38viBGwecW9OGXQbL0luCsG0`,
+      facebookUrl: "https://www.facebook.com/FriarTucksNewry/",
     },
   ],
   [
@@ -90,8 +98,10 @@ export const Branches = new Map<BranchType, BranchDetails>([
       county: "Down",
       postCode: "BT34 3HN",
       phone: "028 417 54444",
-      openingHours: `Monday - Sunday: 12 pm - Varies (COVID) \n
+      openingHours: `Monday - Sunday: 12 pm - Varies (COVID) </br>
       Please call ahead before traveling.`,
+      facebookUrl: "https://www.facebook.com/friartuckswarrenpoint1/",
+      googleMapsUrl: `https://www.google.com/maps/embed/v1/streetview?location=54.1010%2C-6.2535&key=AIzaSyBN6PrFQIW38viBGwecW9OGXQbL0luCsG0`,
     },
   ],
   [
@@ -105,9 +115,11 @@ export const Branches = new Map<BranchType, BranchDetails>([
       county: "Armagh",
       postCode: "BT67 6NQ",
       phone: "028 383 29336",
-      openingHours: `Monday - Thurs: 10am - 12.30am \n
-      Fri & Sat: 10am - 02:30 \n
+      openingHours: `Monday - Thurs: 10am - 12.30am </br>
+      Fri & Sat: 10am - 02:30 </br>
       Sun:10am - 02:00`,
+      googleMapsUrl: `https://www.google.com/maps/embed/v1/place?q=place_id:ChIJnbsgvgP7YEgRJqoigGPMPp4&key=AIzaSyBN6PrFQIW38viBGwecW9OGXQbL0luCsG0`,
+      facebookUrl: "https://www.facebook.com/profile.php?id=100057185660918",
     },
   ],
 ]);

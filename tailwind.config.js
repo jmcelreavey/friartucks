@@ -6,12 +6,12 @@ module.exports = {
     extend: {
       colors: {
         "friar-blue": {
-          DEFAULT: "#274C71"
+          DEFAULT: "#274C71",
         },
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
     styled: true,
     themes: true,

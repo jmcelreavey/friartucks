@@ -32,12 +32,14 @@ const MyApp: AppType = ({ Component, pageProps }) => {
 
   return (
     <div
-      className="mx-auto min-h-screen h-screen min-w-screen w-screen flex-col items-stretch flex"
+      className="mx-auto min-h-screen min-w-screen flex-col items-stretch flex text-white bg-friar-blue"
       data-theme="lemonade"
     >
       <BranchProvider>
         <Navigation />
-        <Component {...pageProps} />
+        <div className="flex-1">
+          <Component {...pageProps} />
+        </div>
         <Footer />
       </BranchProvider>
     </div>
