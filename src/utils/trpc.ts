@@ -16,6 +16,9 @@ export const trpc = setupTRPC<AppRouter>({
     return {
       url: `${getBaseUrl()}/api/trpc`,
       transformer: superjson,
+      headers: {
+        "x-ssr": "1",
+      },
     };
   },
   ssr: true,

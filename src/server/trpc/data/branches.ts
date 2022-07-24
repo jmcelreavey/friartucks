@@ -1,3 +1,5 @@
+import { z } from "zod";
+
 export type BranchDetails = {
   name: string;
   lat: number;
@@ -13,6 +15,10 @@ export type BranchDetails = {
   openPositions?: Vacancy[];
   facebookUrl: string;
   googleMapsUrl?: string;
+  hasDeliveryService?: boolean;
+  hasJavaRepublicCoffee?: boolean;
+  canSkipQueue?: boolean;
+  hasTimoneysIceCream?: boolean;
 };
 
 type Vacancy = {
@@ -22,19 +28,18 @@ type Vacancy = {
   details: string;
 };
 
-export const Branch = {
-  Armagh: "armagh",
-  Banbridge: "banbridge",
-  Newry: "newry",
-  Warrenpoint: "warrenpoint",
-  Lurgan: "lurgan",
-};
+export const Branch = z.enum([
+  "Armagh",
+  "Banbridge",
+  "Newry",
+  "Warrenpoint",
+  "Lurgan",
+]);
+export type Branch = z.infer<typeof Branch>;
 
-type BranchType = typeof Branch[keyof typeof Branch];
-
-export const Branches = new Map<BranchType, BranchDetails>([
+export const Branches = new Map<Branch, BranchDetails>([
   [
-    "armagh",
+    "Armagh",
     {
       name: "Armagh",
       lat: 54.3455963,
@@ -49,10 +54,14 @@ export const Branches = new Map<BranchType, BranchDetails>([
       Sun:10am - 02:00`,
       facebookUrl: "https://www.facebook.com/friartucks.armagh/",
       googleMapsUrl: `https://www.google.com/maps/embed/v1/place?q=place_id:ChIJt16j-GaTYEgRqnUTNOoBR_o&key=AIzaSyBN6PrFQIW38viBGwecW9OGXQbL0luCsG0`,
+      canSkipQueue: true,
+      hasJavaRepublicCoffee: true,
+      about:
+        "Opening in April 2006, this restaurant has taken Friar Tuck's to a new level in restaurant design. This stylish new concept restaurant provides a feeling of modern yet traditional interior surroundings.",
     },
   ],
   [
-    "banbridge",
+    "Banbridge",
     {
       name: "Banbridge",
       lat: 54.3501682,
@@ -67,10 +76,16 @@ export const Branches = new Map<BranchType, BranchDetails>([
       Sun:10am - 02:00`,
       facebookUrl: "https://www.facebook.com/FriarTucksBB/",
       googleMapsUrl: `https://www.google.com/maps/embed/v1/place?q=place_id:ChIJufZW5VLhYEgRsHh40zie5iU&key=AIzaSyBN6PrFQIW38viBGwecW9OGXQbL0luCsG0`,
+      canSkipQueue: true,
+      hasJavaRepublicCoffee: true,
+      hasDeliveryService: true,
+      about:
+        "Our Banbridge restaurant located on the main street in Banbridge was opened in 1990. It proves popular with locals and those commuting through the town.  There is free car parking to the rear of the restaurant.",
+      orderOnlineUrl: "http://friartuckswp.touchtakeaway.net/",
     },
   ],
   [
-    "newry",
+    "Newry",
     {
       name: "Newry",
       lat: 54.1781187,
@@ -85,10 +100,20 @@ export const Branches = new Map<BranchType, BranchDetails>([
       Sun:10am - 02:00`,
       googleMapsUrl: `https://www.google.com/maps/embed/v1/place?q=place_id:ChIJdwL1UVbbYEgR8MiwUDolhWI&key=AIzaSyBN6PrFQIW38viBGwecW9OGXQbL0luCsG0`,
       facebookUrl: "https://www.facebook.com/FriarTucksNewry/",
+      about: `Our Sugar Island restaurant was opened in 1984. This was our second restaurant and now acts as head office for the Friar Tuck's chain.
+      </br>
+      The restaurant initially started off serving the original menu and has been updated over the years in line with market trends.
+      </br>
+      Our Sugar Island restaurant is where all deliveries are made from in the Newry and surrounding area.  
+      <br/>
+      Having undergone a recent refurbishment, we find that people come in to relax over a coffee just to look at our specially commissioned wallpaper.  It features some famous Irish people……..and we welcome you to pop in and see for yourself.`,
+      hasDeliveryService: true,
+      hasJavaRepublicCoffee: true,
+      canSkipQueue: true,
     },
   ],
   [
-    "warrenpoint",
+    "Warrenpoint",
     {
       name: "Warrenpoint",
       lat: 54.1010042,
@@ -102,10 +127,14 @@ export const Branches = new Map<BranchType, BranchDetails>([
       Please call ahead before traveling.`,
       facebookUrl: "https://www.facebook.com/friartuckswarrenpoint1/",
       googleMapsUrl: `https://www.google.com/maps/embed/v1/streetview?location=54.1010%2C-6.2535&key=AIzaSyBN6PrFQIW38viBGwecW9OGXQbL0luCsG0`,
+      canSkipQueue: true,
+      hasTimoneysIceCream: true,
+      hasDeliveryService: true,
+      orderOnlineUrl: "http://friartuckswp.touchtakeaway.net/",
     },
   ],
   [
-    "lurgan",
+    "Lurgan",
     {
       name: "Lurgan",
       lat: 54.4819877,
@@ -120,6 +149,8 @@ export const Branches = new Map<BranchType, BranchDetails>([
       Sun:10am - 02:00`,
       googleMapsUrl: `https://www.google.com/maps/embed/v1/place?q=place_id:ChIJnbsgvgP7YEgRJqoigGPMPp4&key=AIzaSyBN6PrFQIW38viBGwecW9OGXQbL0luCsG0`,
       facebookUrl: "https://www.facebook.com/profile.php?id=100057185660918",
+      hasJavaRepublicCoffee: true,
+      canSkipQueue: true,
     },
   ],
 ]);

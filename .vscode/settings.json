@@ -1,8 +1,0 @@
-{
-  "editor.insertSpaces": true,
-  "editor.detectIndentation": false,
-  "editor.tabSize": 2,
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "trunk.io",
-  "typescript.autoClosingTags": true
-}

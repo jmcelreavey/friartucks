@@ -1,22 +1,14 @@
 import { calculateCrowDistance, retrieveIPBreakdown, t } from "../utils";
 import { z } from "zod";
-import { BranchDetails, Branches } from "../data/branches";
+import { Branch, Branches } from "../data/branches";
 
 export const branchRouter = t.router({
   nearest: t.procedure
     .input(z.object({ ip: z.string() }))
     .query(async ({ input }) => {
-      if (
-        input.ip === "::1" ||
-        input.ip.includes("172.20.0.1") ||
-        input.ip.includes("localhost")
-      ) {
-        input.ip = "86.136.170.246";
-      }
-
       const ipBreakdown = await retrieveIPBreakdown(input.ip);
 
-      let nearestBranch: BranchDetails | undefined;
+      let nearestBranch = Branches.get("Newry");
       let nearestDistance = Number.MAX_VALUE;
 
       Branches.forEach((branch) => {
@@ -33,5 +25,11 @@ export const branchRouter = t.router({
       });
 
       return nearestBranch;
+    }),
+
+  get: t.procedure
+    .input(z.object({ branch: Branch }))
+    .mutation(async ({ input }) => {
+      return Branches.get(input.branch);
     }),
 });

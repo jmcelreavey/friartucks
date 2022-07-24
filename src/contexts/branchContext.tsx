@@ -3,21 +3,21 @@ import { BranchDetails } from "../server/trpc/data/branches";
 
 type BranchContextType = {
   branch: BranchDetails | undefined;
-  updateBranch: (updateBranch: BranchDetails) => void;
+  updateBranch: (updateBranch: BranchDetails | undefined) => void;
 };
 
 const defaultState: BranchContextType = {
   branch: undefined,
-  updateBranch: () => {},
+  updateBranch: () => undefined,
 };
 
 export const BranchContext =
   React.createContext<BranchContextType>(defaultState);
 
 const BranchProvider = ({ children }: React.PropsWithChildren) => {
-  const [branch, setBranch] = React.useState<BranchDetails>();
+  const [branch, setBranch] = React.useState<BranchDetails | undefined>();
 
-  const updateBranch = (branch: BranchDetails) => {
+  const updateBranch = (branch: BranchDetails | undefined) => {
     setBranch(branch);
   };
 
