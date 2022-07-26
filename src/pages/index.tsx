@@ -69,6 +69,7 @@ const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
                     </span>
                     Phone Number: {branch.phone}
                   </p>
+                  <div className="divider my-0" />
                   <p className="text-start flex gap-2 items-center">
                     <span className="mr-4">
                       <FaClock />
@@ -80,49 +81,64 @@ const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
                     />
                   </p>
                   {branch.hasDeliveryService && (
-                    <p className="text-start flex gap-2 items-center">
-                      <span className="mr-4">
-                        <MdOutlineDeliveryDining />
-                      </span>
-                      We deliver
-                    </p>
+                    <>
+                      <div className="divider my-0" />
+                      <p className="text-start flex gap-2 items-center">
+                        <span className="mr-4">
+                          <MdOutlineDeliveryDining />
+                        </span>
+                        We deliver
+                      </p>
+                    </>
                   )}
                   {branch.canSkipQueue && (
-                    <p className="text-start flex gap-2 items-center">
-                      <span className="mr-4">
-                        <GiSmartphone />
-                      </span>
-                      Call your order in advance
-                    </p>
+                    <>
+                      <div className="divider my-0" />
+                      <p className="text-start flex gap-2 items-center">
+                        <span className="mr-4">
+                          <GiSmartphone />
+                        </span>
+                        Call your order in advance
+                      </p>
+                    </>
                   )}
                   {branch.hasJavaRepublicCoffee && (
-                    <p className="text-start flex gap-2 items-center">
-                      <span className="mr-4">
-                        <SiCoffeescript />
-                      </span>
-                      Java Republic Coffee
-                    </p>
+                    <>
+                      <div className="divider my-0" />
+                      <p className="text-start flex gap-2 items-center">
+                        <span className="mr-4">
+                          <SiCoffeescript />
+                        </span>
+                        Java Republic Coffee
+                      </p>
+                    </>
                   )}
                   {branch.hasTimoneysIceCream && (
-                    <p className="text-start flex gap-2 items-center">
-                      <span className="mr-4">
-                        <FaIceCream />
-                      </span>
-                      Timoney&apos;s Ice Cream
-                    </p>
+                    <>
+                      <div className="divider my-0" />
+                      <p className="text-start flex gap-2 items-center">
+                        <span className="mr-4">
+                          <FaIceCream />
+                        </span>
+                        Timoney&apos;s Ice Cream
+                      </p>
+                    </>
                   )}
                   {branch.about && (
-                    <p className="text-start flex gap-2 items-center">
-                      <span className="mr-4">
-                        <GrCircleInformation />
-                      </span>
-                      <span
-                        className="max-w-md"
-                        dangerouslySetInnerHTML={{
-                          __html: `About: ${branch.about}`,
-                        }}
-                      />
-                    </p>
+                    <>
+                      <p className="text-start flex gap-2 items-center">
+                        <div className="divider my-0" />
+                        <span className="mr-4">
+                          <GrCircleInformation />
+                        </span>
+                        <span
+                          className="max-w-md"
+                          dangerouslySetInnerHTML={{
+                            __html: `${branch.about}`,
+                          }}
+                        />
+                      </p>
+                    </>
                   )}
                   <div className="card-actions justify-end">
                     {branch.orderOnlineUrl ? (

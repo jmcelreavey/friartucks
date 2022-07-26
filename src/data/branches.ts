@@ -102,10 +102,13 @@ export const Branches = new Map<Branch, BranchDetails>([
       facebookUrl: "https://www.facebook.com/FriarTucksNewry/",
       about: `Our Sugar Island restaurant was opened in 1984. This was our second restaurant and now acts as head office for the Friar Tuck's chain.
       </br>
+      </br>
       The restaurant initially started off serving the original menu and has been updated over the years in line with market trends.
+      </br>
       </br>
       Our Sugar Island restaurant is where all deliveries are made from in the Newry and surrounding area.  
       <br/>
+      </br>
       Having undergone a recent refurbishment, we find that people come in to relax over a coffee just to look at our specially commissioned wallpaper.  It features some famous Irish people……..and we welcome you to pop in and see for yourself.`,
       hasDeliveryService: true,
       hasJavaRepublicCoffee: true,
