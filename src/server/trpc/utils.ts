@@ -47,7 +47,9 @@ export interface IPBreakdown {
 }
 
 export const retrieveIPBreakdown = async (ip: string): Promise<IPBreakdown> => {
-  const url = `http://ip-api.com/json/${ip}`;
+  console.log(ip);
+  let ipAddress = ip === "" || ip.includes("::") ? "86.136.170.246" : ip;
+  const url = `http://ip-api.com/json/${ipAddress}`;
   const response = await fetch(url);
   return response.json();
 };

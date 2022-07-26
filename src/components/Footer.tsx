@@ -9,11 +9,11 @@ export const Footer = () => (
       <p>Copyright Friar Tucks © {new Date().getFullYear()}</p>
       <div className="divider divider-horizontal" />
       <Link href="/about" passHref>
-        <a className="text-green-500 hover:text-green-600">About Us</a>
+        <a className="text-green-700 hover:text-green-800 hover:underline">About Us</a>
       </Link>
       <div className="divider divider-horizontal" />
       <Link href="/contact" passHref>
-        <a className="text-green-500 hover:text-green-600">Contact Us</a>
+        <a className="text-green-700 hover:text-green-800 hover:underline">Contact Us</a>
       </Link>
     </div>
     <div className="grid-flow-col gap-4 place-self-center">

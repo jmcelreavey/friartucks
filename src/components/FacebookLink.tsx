@@ -12,7 +12,7 @@ export const FacebookLink = () => {
         href={branch?.facebookUrl ?? "https://www.facebook.com/friar.tucks.7"}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-green-500 hover:text-green-600"
+        className="text-green-400 hover:text-green-600"
       >
         <GrFacebook size={40} className="text-blue-500" />
       </a>

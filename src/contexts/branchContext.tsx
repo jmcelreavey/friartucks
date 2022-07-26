@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BranchDetails } from "../server/trpc/data/branches";
+import { BranchDetails } from "../data/branches";
 
 type BranchContextType = {
   branch: BranchDetails | undefined;

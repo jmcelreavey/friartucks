@@ -126,7 +126,7 @@ export const Branches = new Map<Branch, BranchDetails>([
       openingHours: `Monday - Sunday: 12 pm - Varies (COVID) </br>
       Please call ahead before traveling.`,
       facebookUrl: "https://www.facebook.com/friartuckswarrenpoint1/",
-      googleMapsUrl: `https://www.google.com/maps/embed/v1/streetview?location=54.1010%2C-6.2535&key=AIzaSyBN6PrFQIW38viBGwecW9OGXQbL0luCsG0`,
+      googleMapsUrl: `https://www.google.com/maps/embed/v1/place?q=place_id:ChIJD6sq4HbaYEgRQ1GlNfEOC2Q&key=AIzaSyBN6PrFQIW38viBGwecW9OGXQbL0luCsG0`,
       canSkipQueue: true,
       hasTimoneysIceCream: true,
       hasDeliveryService: true,

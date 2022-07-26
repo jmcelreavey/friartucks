@@ -3,10 +3,16 @@
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      sans: ['Oxygen', 'Tahoma', 'Verdana', 'sans-serif'],
+    },
     extend: {
       colors: {
         "friar-blue": {
           DEFAULT: "#274C71",
+        },
+        "friar-green": {
+          DEFAULT: "#339933",
         },
       },
     },

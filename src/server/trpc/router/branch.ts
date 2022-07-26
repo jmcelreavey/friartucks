@@ -1,6 +1,6 @@
 import { calculateCrowDistance, retrieveIPBreakdown, t } from "../utils";
 import { z } from "zod";
-import { Branch, Branches } from "../data/branches";
+import { Branches } from "../../../data/branches";
 
 export const branchRouter = t.router({
   nearest: t.procedure
@@ -25,11 +25,5 @@ export const branchRouter = t.router({
       });
 
       return nearestBranch;
-    }),
-
-  get: t.procedure
-    .input(z.object({ branch: Branch }))
-    .mutation(async ({ input }) => {
-      return Branches.get(input.branch);
     }),
 });
