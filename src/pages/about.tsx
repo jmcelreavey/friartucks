@@ -45,7 +45,7 @@ const Contact: NextPage = () => {
             sourcing our ingredients from local businesses.
           </p>
           <p>
-            We have built a reputation for a quality and friendly service that's
+            We have built a reputation for a quality and friendly service that&apos;s
             second to none, so whichever restaurant you visit you&apos;ll feel
             welcome.
           </p>
