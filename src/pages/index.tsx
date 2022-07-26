@@ -13,7 +13,7 @@ type HomeProps = {
   ip: string | undefined;
 };
 const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
-  trpc.proxy.branch.nearest.useQuery(
+  const { isLoading: isLoadingBranch } = trpc.proxy.branch.nearest.useQuery(
     {
       ip: ip ?? "",
     },
@@ -32,6 +32,7 @@ const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
+  const blankOptionWhenLoading = isLoadingBranch && <option> </option>;
   return (
     <div className="items-center align-middle justify-center">
       <div className="text-center p-4">
@@ -44,6 +45,7 @@ const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
             }}
             className="text-center bg-base-100 text-green-700 border-green-700 border-2 rounded-lg p-2"
           >
+            {blankOptionWhenLoading}
             {Object.keys(Branch.Enum).map((branch) => (
               <option key={branch} value={branch}>
                 {capitalizeFirstLetter(branch)}
@@ -54,8 +56,8 @@ const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
         </h1>
         {/* if branch is not loaded show loading div else show phone number  */}
         <div className="mt-8 text-slate-700 grid place-items-center max-w-screen">
-          <div className="card lg:card-side bg-base-100 shadow-2xl border-2 max-w-full">
-            {branch ? (
+          {branch ? (
+            <div className="card lg:card-side bg-base-100 shadow-2xl border-2 max-w-full">
               <>
                 <div className="card-body">
                   <h1 className="card-title mb-4 text-green-700">
@@ -147,14 +149,14 @@ const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
                   src={branch.googleMapsUrl}
                 />
               </>
-            ) : (
-              <div className="text-center">
-                <div className="spinner-border text-green-700" role="status">
-                  <span className="sr-only">Loading...</span>
-                </div>
+            </div>
+          ) : (
+            <div className="text-center">
+              <div className="spinner-border text-green-700" role="status">
+                <span className="sr-only">Loading...</span>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
