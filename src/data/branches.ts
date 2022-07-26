@@ -19,6 +19,7 @@ export type BranchDetails = {
   hasJavaRepublicCoffee?: boolean;
   canSkipQueue?: boolean;
   hasTimoneysIceCream?: boolean;
+  isHiring?: boolean;
 };
 
 type Vacancy = {
@@ -113,6 +114,7 @@ export const Branches = new Map<Branch, BranchDetails>([
       hasDeliveryService: true,
       hasJavaRepublicCoffee: true,
       canSkipQueue: true,
+      isHiring: true,
     },
   ],
   [

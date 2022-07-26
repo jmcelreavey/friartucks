@@ -60,10 +60,22 @@ const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
             <div className="card lg:card-side bg-base-100 shadow-2xl border-2 max-w-full">
               <>
                 <div className="card-body">
-                  <h1 className="card-title mb-4 text-green-700">
+                  <h1 className="card-title text-green-700">
                     {capitalizeFirstLetter(branch.name)} Information
                   </h1>
-                  <p className="text-start flex gap-2 items-center">
+                  <div className="justify-start"> 
+                          {branch.isHiring && (
+                            <div className="alert alert-info shadow-lg">
+                              <div>
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span className="ml-2 font-semibold">
+                                  We&apos;re Hiring - Contact us for details.
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                    </div>
+                  <p className="text-start flex gap-2 items-center mt-4">
                     <span className="mr-4">
                       <FaPhoneAlt />
                     </span>
@@ -140,22 +152,24 @@ const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
                       </p>
                     </>
                   )}
-                  <div className="card-actions justify-end">
-                    {branch.orderOnlineUrl ? (
-                      <a
-                        href={branch.orderOnlineUrl}
-                        className="btn btn-primary"
-                      >
-                        Order Online
-                      </a>
-                    ) : (
-                      <a
-                        href={`tel:${branch.phone}`}
-                        className="btn btn-primary"
-                      >
-                        Call
-                      </a>
-                    )}
+                  <div className="card-actions">
+                    <div className="grow justify-end"> 
+                      {branch.orderOnlineUrl ? (
+                        <a
+                          href={branch.orderOnlineUrl}
+                          className="btn btn-primary"
+                        >
+                          Order Online
+                        </a>
+                      ) : (
+                        <a
+                          href={`tel:${branch.phone}`}
+                          className="btn btn-primary"
+                        >
+                          Call
+                        </a>
+                      )}
+                      </div>
                   </div>
                 </div>
                 <iframe
