@@ -1,5 +1,5 @@
 import type { GetServerSideProps, NextPage } from "next";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { BranchContext } from "../contexts/branchContext";
 import { Branch, Branches } from "../data/branches";
 import { trpc } from "../utils/trpc";
@@ -8,11 +8,13 @@ import { GiSmartphone } from "react-icons/gi";
 import { GrCircleInformation } from "react-icons/gr";
 import { SiCoffeescript } from "react-icons/si";
 import { MdOutlineDeliveryDining } from "react-icons/md";
+import autoAnimate from "@formkit/auto-animate";
 
 type HomeProps = {
   ip: string | undefined;
 };
 const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
+  const parent = useRef(null);
   const { isLoading: isLoadingBranch } = trpc.proxy.branch.nearest.useQuery(
     {
       ip: ip ?? "",
@@ -33,6 +35,11 @@ const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
   };
 
   const blankOptionWhenLoading = isLoadingBranch && <option> </option>;
+
+  useEffect(() => {
+    branch && parent.current && autoAnimate(parent.current);
+  }, [parent, branch]);
+
   return (
     <div className="items-center align-middle justify-center">
       <div className="text-center p-4">
@@ -59,22 +66,34 @@ const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
           {branch ? (
             <div className="card lg:card-side bg-base-100 shadow-2xl border-2 max-w-full">
               <>
-                <div className="card-body">
+                <div ref={parent} className="card-body">
                   <h1 className="card-title text-green-700">
                     {capitalizeFirstLetter(branch.name)} Information
                   </h1>
-                  <div className="justify-start"> 
-                          {branch.isHiring && (
-                            <div className="alert alert-info shadow-lg">
-                              <div>
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current flex-shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <span className="ml-2 font-semibold">
-                                  We&apos;re Hiring - Contact us for details.
-                                </span>
-                              </div>
-                            </div>
-                          )}
-                    </div>
+                  <div className="justify-start">
+                    {branch.isHiring && (
+                      <div className="alert alert-info shadow-lg">
+                        <div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            className="stroke-current flex-shrink-0 w-6 h-6"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                          </svg>
+                          <span className="ml-2 font-semibold">
+                            We&apos;re Hiring - Contact us for details.
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                   <p className="text-start flex gap-2 items-center mt-4">
                     <span className="mr-4">
                       <FaPhoneAlt />
@@ -153,7 +172,7 @@ const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
                     </>
                   )}
                   <div className="card-actions">
-                    <div className="grow justify-end"> 
+                    <div className="grow justify-end">
                       {branch.orderOnlineUrl ? (
                         <a
                           href={branch.orderOnlineUrl}
@@ -169,7 +188,7 @@ const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
                           Call
                         </a>
                       )}
-                      </div>
+                    </div>
                   </div>
                 </div>
                 <iframe
@@ -181,7 +200,7 @@ const Home: NextPage<HomeProps> = ({ ip }: HomeProps) => {
               </>
             </div>
           ) : (
-            <div className="text-center">
+            <div ref={parent} className="text-center">
               <div className="spinner-border text-green-700" role="status">
                 <span className="sr-only">Loading...</span>
               </div>

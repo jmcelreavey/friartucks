@@ -19,6 +19,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formkit/auto-animate": "1.0.0-beta.1",
     "@tailwindcss/typography": "^0.5.4",
     "@trpc/client": "^10.0.0-alpha.39",
     "@trpc/next": "^10.0.0-alpha.39",
