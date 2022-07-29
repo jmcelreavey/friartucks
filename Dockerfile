@@ -12,9 +12,10 @@ RUN apt-get update && \
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
+COPY .npmrc ./
 
 # Install pnpm
-RUN npm install -g pnpm@7.5.0; \
+RUN npm install -g pnpm@7.6.0; \
     pnpm --version; \
     mkdir -p /usr/local/share/pnpm 
 RUN pnpm setup; \
